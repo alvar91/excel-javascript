@@ -11,14 +11,21 @@ function toCell() {
 
 function toColumn(col) {
   return `
-    <div class="column">${col}</div>
+    <div class="column">
+      ${col}
+      <div class="col-resize"></div>
+    </div>
   `
 }
 
 function createRow(index, content) {
+  const resize = index ? '<div class="row-resize"></div>' : ''
   return `
     <div class="row">
-      <div class="row-info">${index ? index : ''}</div>
+      <div class="row-info">
+        ${index ? index : ''}
+        ${resize}
+      </div>
       <div class="row-data">${content}</div>
     </div>
   `
@@ -29,7 +36,7 @@ function toChar(_, index) {
 }
 
 export function createTable(rowsCount = 15) {
-  const colsCount = CODES.Z - CODES.A + 1
+  const colsCount = CODES.Z - CODES.A + 1 // Compute cols count
   const rows = []
 
   const cols = new Array(colsCount)
