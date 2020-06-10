@@ -51,6 +51,10 @@ class Dom {
   getCoords() {
     return this.$el.getBoundingClientRect()
   }
+
+  findAll(selector) {
+    return this.$el.querySelectorAll(selector)
+  }
 }
 
 // event.target
