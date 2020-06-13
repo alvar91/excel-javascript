@@ -4,7 +4,7 @@ export class Emitter {
   }
 
   // dispatch, fire, trigger
-  // Уведомляем слушателей, если они есть
+  // Уведомляем слушателе если они есть
   // table.emit('table:select', {a: 1})
   emit(event, ...args) {
     if (!Array.isArray(this.listeners[event])) {
