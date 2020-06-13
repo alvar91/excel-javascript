@@ -18,6 +18,10 @@ export class TableSelection {
     this.group = []
   }
 
+  get selectedIds() {
+    return this.group.map($el => $el.id())
+  }
+
   selectGroup($group = []) {
     this.clear()
 
