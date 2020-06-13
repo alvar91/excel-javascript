@@ -16,37 +16,41 @@ function toButton(button) {
   `
 }
 
-export function createToolbar(state) {
+export function createToolbar(s) {
   const buttons = [
     {
+      value: {textAlign: 'left'},
       icon: 'format_align_left',
-      active: false,
-      value: {textAlign: 'left'}
+      active: s['textAlign'] === 'left'
     },
     {
-      icon: 'format_align_center',
-      active: false,
-      value: {textAlign: 'center'}
+      value: {textAlign: 'center'},
+      icon: 'format_align_justify',
+      active: s['textAlign'] === 'center'
     },
     {
+      value: {textAlign: 'right'},
       icon: 'format_align_right',
-      active: false,
-      value: {textAlign: 'right'}
+      active: s['textAlign'] === 'right'
     },
     {
+      value: {fontWeight: s['fontWeight'] === 'bold' ? 'normal' : 'bold'},
       icon: 'format_bold',
-      active: state['fontWeight'] === 'bold',
-      value: {fontWeight: state['fontWeight'] === 'bold' ? 'normal' : 'bold'}
+      active: s['fontWeight'] === 'bold'
     },
     {
-      icon: 'format_italic',
-      active: false,
-      value: {fontStyle: 'italic'}
-    },
-    {
+      value: {
+        textDecoration: s['textDecoration'] === 'underline' ?
+          'none' :
+          'underline'
+      },
       icon: 'format_underlined',
-      active: false,
-      value: {textDecoration: 'underline'}
+      active: s['textDecoration'] === 'underline'
+    },
+    {
+      value: {fontStyle: s['fontStyle'] === 'italic' ? 'normal' : 'italic'},
+      icon: 'format_italic',
+      active: s['fontStyle'] === 'italic'
     }
   ]
   return buttons.map(toButton).join('')
