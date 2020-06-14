@@ -22,7 +22,6 @@ export class ExcelPage extends Page {
     const store = createStore(rootReducer, initialState)
 
     const stateListener = debounce(state => {
-      console.log('App State: ', state)
       storage(storageName(params), state)
     }, 300)
 
